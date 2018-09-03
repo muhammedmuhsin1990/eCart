@@ -1,0 +1,56 @@
+<!--The content below is only a placeholder and can be replaced.-->
+
+  <nav class="navbar navbar-light bg-light justify-content-between">
+    <a class="navbar-brand"><h1>{{title}}</h1></a>
+    <form class="form-inline">
+      <a href="" class="my-2 my-sm-0">Home</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+      <a href="" class="my-2 my-sm-0">SingUp</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+      <a href="" class="my-2 my-sm-0">SignIn</a>&nbsp;&nbsp;||&nbsp;&nbsp;
+      <p><span class="glyphicon glyphicon-heart"></span>Cart({{agree}})</p> &nbsp;&nbsp;<p><span class="glyphicon glyphicon-heart"></span>Fav()</p>
+    </form>
+  </nav>
+  <div class="container-fluid text-left">    
+      <div class="row content">
+        <div class="col-md-2 sidenav" style="background-color: darkslategray">
+            <ul *ngFor='let productName of productNames; let i=index'>
+                <li><div class="sidemenu"><a href="#" class="btn text-aqua" (click)="clickFunction(productName)">{{productName}}</a></div></li>
+              </ul>
+        </div>
+        <div class="col-md-10 text-left" style="background-color: gainsboro"> 
+          <br/>
+          <div class="row">
+              <div class="col-md-4" *ngFor='let productImages of productImages let i=index'>
+                  <figure class="card card-product"> 
+                    <div class="img-wrap">
+                          <span class="glyphicon glyphicon-heart"></span>
+                            <img class="img img-responsive" src="../assets/image/{{productImages['url']}}" alt="">
+                           
+                             
+                    </div>
+                    <figcaption class="info-wrap">
+                        <h4><span (mouseover) = "onMouseOver()" (mouseout)="onMouseOut()" [style.color]="mSpanColor" > {{productImages['productName']}}</span></h4>
+                        <p class="desc">{{productImages['size']}}</p>
+                        <div class="rating-wrap"> 
+                          <div class="label-rating">132 reviews</div>
+                          <div class="label-rating">154 orders </div>
+                        </div> 
+                                          </figcaption>
+                    <div class="bottom-wrap">
+                      <button class="btn btn-sm btn-primary float-right" (click) = "onCart()">Add Cart</button>	
+                      <div class="price-wrap h5">
+                        <span class="price-new">${{productImages['price']}}</span> <del class="price-old">$1980</del>
+                      </div>
+                    </div> 
+                  </figure>
+                </div>
+          
+        </div>
+         </div>
+       
+      </div>
+    </div>
+   
+      
+                  
+      
+    
